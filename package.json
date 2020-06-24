@@ -1,0 +1,25 @@
+{
+  "name": "fhapp-cse341",
+  "version": "1.0.0",
+  "description": "Family history app demo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "cse341",
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "Francisco Gongora",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.2.1"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}

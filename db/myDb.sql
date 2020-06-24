@@ -1,0 +1,11 @@
+CREATE TABLE person (
+id   INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+first_name TEXT NOT NULL,
+last_name TEXT NOT NULL,
+birth_date DATE NOT NULL
+);
+
+CREATE TABLE parents_children (
+    parent_id INT NOT NULL REFERENCES person(id) ON DELETE CASCADE,
+    children_id INT NOT NULL REFERENCES person(id) ON DELETE CASCADE
+);
