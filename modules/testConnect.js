@@ -5,7 +5,7 @@ const connectionString = process.env.DATABASE_URL || "postgres://cseuser:Spring2
 const pool = new Pool({ connectionString: connectionString });
 
 function testConnect(request, response) {
-  let id = 1;
+  let id = request.query.id;
   if (id < 1) {
     response.status(500).json({ success: false, data: "ID must be greater than zero" });
   } else {
@@ -21,7 +21,7 @@ function testConnect(request, response) {
 }
 
 function getCustomersFromDb(id, callback) {
-  console.log("Getting persons from DB");
+  console.log("Getting person from DB");
 
   const sql = "SELECT * FROM person WHERE id = $1::int";
 
