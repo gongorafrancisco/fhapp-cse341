@@ -5,7 +5,7 @@ const connectionString = process.env.DATABASE_URL || "postgres://cseuser:Spring2
 const pool = new Pool({ connectionString: connectionString });
 
 function testConnect(request, response) {
-  let id = request.query.id;
+  let id = Number(request.query.id);
   if (id < 1) {
     response.status(500).json({ success: false, data: "ID must be greater than zero" });
   } else {
