@@ -1,11 +1,12 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const testConnect = require('./modules/testConnect')
+const getPerson = require('./modules/getPerson')
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/api/getPerson', testConnect)
+  .get('/api/person/:id', getPerson)
+  .get('/api/person/', getPerson)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
