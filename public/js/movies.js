@@ -56,7 +56,14 @@ function createRequest(url, success, fail) {
         .catch((error) => fail(error));
 };
 
+function displayMovieDetails(title) {
+    const params = apiKey + '&i=' + encodeURI(title);
+    const url = api + params;
+    removeChilds(detailsBox);
+    createRequest(url, movieSuccess, fail);
+}
 
+//Constructors
 function buildMoviesList(movie, element) {
     let row = document.createElement('tr');
     let thTitle = document.createElement('th');
@@ -67,9 +74,10 @@ function buildMoviesList(movie, element) {
     row.appendChild(tdType);
     let tdDetails = document.createElement('td');
     let movieLink = document.createElement('a');
-    movieLink.textContent = ' See details';
-    movieLink.href = '#';
-    movieLink.onclick = function () {
+    movieLink.textContent = 'See details';
+    movieLink.href = movie.imdbID;
+    movieLink.onclick = function (event) {
+        event.preventDefault();
         displayMovieDetails(movie.imdbID);
     }
     tdDetails.appendChild(movieLink);
@@ -107,6 +115,7 @@ function removeChilds(element) {
     }
 }
 
+
 function elementConstructor(tag, text) {
     const el = document.createElement(tag);
     el.textContent = text;
@@ -129,11 +138,4 @@ function tableConstructor() {
     trHeaders.appendChild(rowTh);
     moviesTable.appendChild(trHeaders);
     return moviesTable;
-}
-
-function displayMovieDetails(title) {
-    const params = apiKey + '&i=' + encodeURI(title);
-    const url = api + params;
-    removeChilds(detailsBox);
-    createRequest(url, movieSuccess, fail);
 }

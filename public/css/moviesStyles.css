@@ -26,6 +26,7 @@
 #results2 ul {
     list-style: none;
     border: 1px solid goldenrod;
+    position: relative;
 }
 #results2 ul span {
     font-size: 2em;
