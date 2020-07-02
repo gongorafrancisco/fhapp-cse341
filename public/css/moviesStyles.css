@@ -1,0 +1,36 @@
+#searchMovieForm {
+    width: 60%;
+    display: flex;
+    font-size: 1.5rem;
+}
+
+#searchMovieForm input[type=text] {
+    margin: 0 1em;
+    width: 50%;
+}
+
+#results  {
+    padding: 1em;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#results table {
+    width: 100%;
+    font-size: 1.5rem;
+}
+#results table th {
+    text-align: left;
+}
+#results2 ul {
+    list-style: none;
+    border: 1px solid goldenrod;
+}
+#results2 ul span {
+    font-size: 2em;
+    font-weight: bold;
+}
+#results2 ul li {
+    padding: 0.5rem;
+}
